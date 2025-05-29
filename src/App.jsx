@@ -2,6 +2,7 @@ import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
 import { useEffect, useState } from "react";
 import { v4 } from "uuid";
+import TemaProvider from "./infrastructure/tema/TemaProvider";
 
 function App() {
   const [tasks, setTasks] = useState(
@@ -53,6 +54,7 @@ function App() {
   }
 
   return (
+      <TemaProvider>
         <div className="w-screen h-screen flex justify-center bg-slate-500 p-6">
             <div className="w-[500px] space-y-4">
               <h1 className="text-3xl text-slate-100 font-bold text-center">
@@ -66,6 +68,7 @@ function App() {
                 onDeleteTaskClick={onDeleteTaskClick} />
             </div>
         </div>
+      </TemaProvider>
   )
 }
 
